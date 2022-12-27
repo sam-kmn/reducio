@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
-import { ReactNode, useEffect } from "react"
+import type { ReactNode } from "react"
+import { useEffect } from "react"
 
 export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const { status } = useSession()

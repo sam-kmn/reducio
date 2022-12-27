@@ -16,6 +16,6 @@ export interface LinkStore {
   error: string
   links: Link[]
   getLinks: () => void
-  postLink: (body: LinkInput) => void
+  postLink: (body: LinkInput) => Promise<{ success: boolean }>
   deleteLink: (slug: string) => void
 }

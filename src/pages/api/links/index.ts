@@ -20,11 +20,20 @@ const links = async (req: NextApiRequest, res: NextApiResponse) => {
   switch (req.method) {
     case "GET": {
       try {
-        const links = await prisma.link.findMany()
-        if (!links) return res.status(404).json({ success: false, message: "There are no links in a table." })
+        const links = await prisma.link.findMany({
+          where: {
+            userId: session.user.id,
+          },
+        })
+        if (!links)
+          return res
+            .status(404)
+            .json({ success: false, message: "There are no links in a table." })
         res.status(200).json({ success: true, data: links })
       } catch (error) {
-        res.status(400).json({ success: false, message: "Unable to get data from table." })
+        res
+          .status(400)
+          .json({ success: false, message: "Unable to get data from table." })
       }
       break
     }
@@ -32,24 +41,40 @@ const links = async (req: NextApiRequest, res: NextApiResponse) => {
     case "POST": {
       try {
         // Check for request body
-        if (!req.body) return res.status(406).json({ success: false, message: "Body is required!" })
-        // Type safety 
+        if (!req.body)
+          return res
+            .status(406)
+            .json({ success: false, message: "Body is required!" })
+        // Type safety
         const typeCheck = linkSchema.safeParse(req.body)
-        if (!typeCheck.success) return res.status(406).json({ success: typeCheck.success, message: 'Invalid type!' })
+        if (!typeCheck.success)
+          return res
+            .status(406)
+            .json({ success: typeCheck.success, message: "Invalid type!" })
         // Checking characters
-        if (!/^\w+$/.test(req.body.slug)) return res.status(406).json({success: false, message: 'Slug contains not allowed characters'})
+        if (!/^\w+$/.test(req.body.slug))
+          return res
+            .status(406)
+            .json({
+              success: false,
+              message: "Slug contains not allowed characters",
+            })
         // Is slug unique?
-        const links = await prisma.link.findMany({where: {slug: req.body.slug}})
-        if (links.length) return res.status(406).json({ success: false, message: 'Slug is already used!' })
+        const links = await prisma.link.findMany({
+          where: { slug: req.body.slug },
+        })
+        if (links.length)
+          return res
+            .status(406)
+            .json({ success: false, message: "Slug is already used!" })
         // Create link
         const link = await prisma.link.create({
           data: {
             ...req.body,
-            userId: session.user.id
-          } 
+            userId: session.user.id,
+          },
         })
-        res.status(200).json({ success: true, data:link })
-
+        res.status(200).json({ success: true, data: link })
       } catch (error) {
         res.status(400).json({ error })
       }

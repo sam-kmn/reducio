@@ -9,7 +9,7 @@ const Links = () => {
   if (links.length)
     return (
       <div className="flex h-full flex-col gap-7 overflow-y-scroll scroll-smooth   ">
-        {links.map((link: any) => (
+        {links.map((link) => (
           <div
             onClick={() => copyLink("http://localhost:3000/s/" + link.slug)}
             key={link.id}

@@ -1,8 +1,8 @@
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 
 const Navbar = () => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   return (
     <nav className=" flex items-center justify-between">

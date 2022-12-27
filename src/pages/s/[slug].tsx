@@ -1,24 +1,23 @@
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 
-const page = () => {
+const RedirectPage = () => {
   const router = useRouter()
   const { slug } = router.query
   const [error, setError] = useState()
 
-  const navigateToPage = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/links/" + slug)
-      const data = await response.json()
-      if (!data.success) setError(data.message)
-      else window.location.href = data.data.target
-      console.log(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
+    const navigateToPage = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/links/" + slug)
+        const data = await response.json()
+        if (!data.success) setError(data.message)
+        else window.location.href = data.data.target
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     if (slug) navigateToPage()
   }, [slug])
 
@@ -31,4 +30,4 @@ const page = () => {
   else return null
 }
 
-export default page
+export default RedirectPage

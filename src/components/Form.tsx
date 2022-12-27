@@ -1,9 +1,10 @@
 import { useLinks } from "@/utils/store"
-import { useState, useCallback, ChangeEvent } from "react"
+import { useState, useCallback } from "react"
+import type { ChangeEvent } from "react"
 
 const Form = () => {
-  const error = useLinks((state: any) => state.error)
-  const postLink = useLinks((state: any) => state.postLink)
+  const error = useLinks((state) => state.error)
+  const postLink = useLinks((state) => state.postLink)
   const [form, setForm] = useState({ target: "", slug: "" })
   const handleForm = useCallback(
     (e: ChangeEvent<HTMLInputElement>) =>

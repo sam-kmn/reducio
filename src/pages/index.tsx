@@ -8,7 +8,7 @@ const Home: NextPage = () => {
       <main className="mx-auto flex h-full max-w-lg flex-col items-center justify-start gap-10  pt-32 md:max-w-2xl ">
         <div className="space-y-2 text-center">
           <p className="tracking-widest text-purple-500 md:text-lg">
-            DON’T WASTE YOUR TIME
+            DON&apos;T WASTE YOUR TIME
           </p>
           <h1 className="text-5xl font-medium tracking-wide text-white  md:text-6xl lg:text-7xl ">
             Reduce your links

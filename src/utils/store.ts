@@ -1,4 +1,4 @@
-import { Link, LinkInput, LinkStore } from "@/types/link"
+import type { Link, LinkInput, LinkStore } from "@/types/link"
 import create from "zustand"
 
 export const useLinks = create<LinkStore>((set) => ({
@@ -29,7 +29,7 @@ export const useLinks = create<LinkStore>((set) => ({
       return { success: true }
     } catch (error) {
       console.log(error)
-      set({ error: error!.toString() })
+      set({ error: (error || "Something went wrong!").toString() })
       return { success: false }
     }
   },

@@ -9,7 +9,7 @@ const AuthPage = () => {
 
   useEffect(() => {
     if (status === "authenticated") router.push("/dash")
-  }, [status])
+  }, [status, router])
 
   return (
     <Layout>

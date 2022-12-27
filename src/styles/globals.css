@@ -10,7 +10,7 @@ body {
 
 #__next {
   @apply absolute inset-0 overflow-hidden bg-neutral-900 text-neutral-100;
-  background-image: url("../assets/bg.png");
+  background-image: url("/bg.png");
   background-size: cover;
   /* @apply h-full w-full; */
 }

@@ -6,18 +6,18 @@ import { useLinks } from "@/utils/store"
 import { useEffect } from "react"
 
 const Dashboard = () => {
-  const getLinks = useLinks((state: any) => state.getLinks)
+  const getLinks = useLinks((state) => state.getLinks)
 
   useEffect(() => {
     getLinks()
-  }, [])
+  }, [getLinks])
 
   return (
     <ProtectedRoute>
       <Layout>
         <main className=" mx-auto  flex h-full max-w-xl flex-col  gap-10 pt-10  ">
           <h1 className="text-center text-4xl font-medium lg:text-5xl">
-            Let's reduce your link!
+            Let&apos;s reduce your link!
           </h1>
           <Form />
           <Links />
