@@ -11,14 +11,14 @@ const Home: NextPage = () => {
             DON&apos;T WASTE YOUR TIME
           </p>
           <h1 className="text-5xl font-medium tracking-wide text-white  md:text-6xl lg:text-7xl ">
-            Reduce your links
+            Reduce <span className="hidden sm:inline-block">your</span> links
           </h1>
           <h3 className="max-w-2xl text-lg  tracking-wider text-neutral-400 md:text-xl lg:text-2xl">
             With our easy-to-use platform, you can quickly and easily shorten
-            and store links for easy sharing.{" "}
+            and store links for easy sharing.
           </h3>
         </div>
-        <div className="flex items-center justify-center gap-10 text-lg font-medium tracking-wide">
+        <div className="flex flex-col items-center justify-center gap-5 text-lg font-medium tracking-wide sm:gap-10 md:flex-row md:gap-14">
           <Link
             href="/dash"
             className="flex animate-pulse items-center gap-2 text-purple-400"

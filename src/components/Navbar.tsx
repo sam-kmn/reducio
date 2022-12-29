@@ -5,7 +5,7 @@ const Navbar = () => {
   const { data: session } = useSession()
 
   return (
-    <nav className=" flex items-center justify-between">
+    <nav className="flex w-full items-center justify-between">
       <Link
         href="/"
         className="font-mono text-2xl font-semibold  tracking-wider"

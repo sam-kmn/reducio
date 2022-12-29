@@ -14,7 +14,7 @@ const Form = () => {
 
   return (
     <form
-      className="flex flex-col gap-5"
+      className="flex w-full flex-col  gap-5"
       onSubmit={async (event) => {
         event.preventDefault()
         const response = await postLink(form)
@@ -30,7 +30,7 @@ const Form = () => {
         onChange={(e) => handleForm(e)}
         required
       />
-      <div className="flex items-center justify-between gap-5 ">
+      <div className="flex items-center justify-between gap-5  ">
         <input
           name="slug"
           placeholder="Custom slug"
@@ -44,9 +44,10 @@ const Form = () => {
         />
         <button
           type="submit"
-          className=" h-full  rounded-full bg-neutral-800/70 px-8 text-lg transition duration-200 hover:bg-purple-500 hover:text-white focus:bg-purple-700 "
+          className=" h-full rounded-full bg-neutral-800/70 px-4 transition duration-200 hover:bg-purple-500 hover:text-white focus:bg-purple-700 sm:px-8 "
         >
-          Reduce
+          <span className="hidden sm:inline-block">Reduce</span>
+          <span className="bi bi-box sm:hidden"></span>
         </button>
       </div>
       <p className="text-red-500">{error}</p>
