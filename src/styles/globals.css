@@ -14,3 +14,21 @@ body {
   background-size: cover;
   /* @apply h-full w-full; */
 }
+
+.slide-up {
+  animation-name: slide;
+  position: relative;
+}
+
+@keyframes slide {
+  from {
+    top: 50px;
+    opacity: 0%;
+    scale: 0.9;
+  }
+  to {
+    top: 0px;
+    opacity: 100%;
+    scale: 1;
+  }
+}
