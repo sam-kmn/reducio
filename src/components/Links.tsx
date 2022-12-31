@@ -12,7 +12,7 @@ const Links = () => {
       <div className="flex h-full w-full flex-col gap-7 overflow-y-scroll scroll-smooth   ">
         {links.map((link) => (
           <div
-            onClick={() => copyLink("http://localhost:3000/s/" + link.slug)}
+            onClick={() => copyLink(process.env.NEXT_PUBLIC_URL + 's/' + link.slug)}
             key={link.id}
             className="group flex cursor-pointer items-start justify-between gap-5"
           >

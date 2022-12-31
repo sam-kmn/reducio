@@ -9,7 +9,7 @@ const RedirectPage = () => {
   useEffect(() => {
     const navigateToPage = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/links/" + slug)
+        const response = await fetch(process.env.NEXT_PUBLIC_URL  + "api/links/" + slug)
         const data = await response.json()
         if (!data.success) setError(data.message)
         else window.location.href = data.data.target
